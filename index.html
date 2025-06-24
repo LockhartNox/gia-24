@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎉 HBD Gia!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4b2c3a, #6e3b4d);
+      color: #f5e9ec;
+      overflow: hidden;
+    }
+
+    .container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .splash {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #3b1f2a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .splash h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .splash button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.2rem;
+      background-color: #a43f5a;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .splash button:hover {
+      background-color: #8c2f4a;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ffe4ec;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      max-width: 400px;
+    }
+
+    .gift {
+      margin-top: 1.5rem;
+      background-color: rgba(255, 240, 245, 0.1);
+      border: 2px dashed #ffb6c1;
+      border-radius: 15px;
+      padding: 1rem 2rem;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.2);
+      max-width: 400px;
+    }
+
+    .playlist {
+      margin-top: 2rem;
+    }
+
+    .btn {
+      background-color: #a43f5a;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #8c2f4a;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash screen -->
+  <div class="splash" id="splash">
+    <h1>✨ Tap to Start Gia's Birthday!</h1>
+    <button onclick="startExperience()">Start</button>
+  </div>
+
+  <!-- Main content -->
+  <div class="container" id="main">
+    <h1>🎂 Happy Birthday Giaaaa</h1>
+    <p>Wishing you a great day filled with good moments, semangat menjalani kuliahnya yaaa, semoga cepat sadar. <br>Alles Gute zum Geburtstag (gatau bener gaa itu ehee).</p>
+
+    <div class="gift">
+      <h2>🎁 A Little Something</h2>
+      <p>Pesan template buat kamu giaaa ehehee:</p>
+      <blockquote><em>"You are never too old to set another goal or to dream a new dream."</em></blockquote>
+    </div>
+
+    <div class="playlist">
+      <h2>🎧 Your Spotify Playlist</h2>
+      <button class="btn" onclick="openPlaylist()">Open Playlist on Spotify</button>
+      <p><small>*click to listen 🎶</small></p>
+    </div>
+  </div>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/13/audio_5a3b169191.mp3?filename=birthday-145008.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function openPlaylist() {
+      window.open('https://open.spotify.com/playlist/4Kzvqem7QaVKE90W5KcFWf?si=7bb7f65c8450417f', '_blank');
+    }
+
+    function startExperience() {
+      const splash = document.getElementById("splash");
+      const main = document.getElementById("main");
+      const music = document.getElementById("bg-music");
+
+      splash.style.display = "none";
+      main.style.display = "flex";
+
+      // Mulai musik setelah interaksi
+      music.play().catch(() => {
+        console.warn("Autoplay diblokir, silakan klik tombol play manual.");
+      });
+    }
+  </script>
+
+</body>
+</html>
